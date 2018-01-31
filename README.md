@@ -1,7 +1,7 @@
 # Scanpay .NET library
 
 ## Documentation
-See the [docs](https://docs.scanpay.dk/)
+See the [docs](https://docs.scanpay.dk/).
 
 ## Installation
 
