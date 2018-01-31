@@ -1,5 +1,4 @@
 using System;
-using Scanpay;
 
 namespace NewURLTest
 {
@@ -7,7 +6,7 @@ namespace NewURLTest
     {
         static void Main(string[] args)
         {
-            var client = new Client("1089:bx2a4DATi8ad87Nm4uaxg5nggYA8J/Hv99CON977YiEdvYa6DmMwdoRPoYWyBJSi");
+            var client = new Scanpay.Client("1089:bx2a4DATi8ad87Nm4uaxg5nggYA8J/Hv99CON977YiEdvYa6DmMwdoRPoYWyBJSi");
             var body = "{\"seq\": 1,\"shopid\": 1089}";
             var signature = "ANtDa0NzHihPDDgl+3zlO6u1zO3mSwQJSogIIahzpAY=";
 

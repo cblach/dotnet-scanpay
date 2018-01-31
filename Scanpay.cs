@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 
 namespace Scanpay
 {
-
     public class Client
     {
         private const string HOSTNAME = "api.scanpay.dk";
@@ -98,16 +97,18 @@ namespace Scanpay
         {
             return handlePing(Encoding.UTF8.GetBytes(body), signature);
         }
-
+        internal class NullReq{}
+    }
         public class NewURLReq
         {
             public string   orderid;
-            public string   language;
-            public bool     autocapture;
             public string   successurl;
             public Item[]   items;
             public Billing  billing;
             public Shipping shipping;
+            public string   language;
+            public bool     autocapture;
+            public string   lifetime;
         }
 
         public class Item
@@ -122,6 +123,8 @@ namespace Scanpay
         {
             public string   name;
             public string   company;
+            public string   vatin;
+            public string   gln;
             public string   email;
             public string   phone;
             public string[] address;
@@ -129,8 +132,6 @@ namespace Scanpay
             public string   zip;
             public string   state;
             public string   country;
-            public string   vatin;
-            public string   gln;
         }
 
         public class Shipping
@@ -202,6 +203,4 @@ namespace Scanpay
             public Dictionary<string, string> headers;
         }
 
-        internal class NullReq{}
-    }
 }

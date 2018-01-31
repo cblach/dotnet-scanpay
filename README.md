@@ -2,27 +2,22 @@
 
 ## Usage
 
-Load the Scanpay .NET Library:
-```csharp
-using Scanpay; # Use alias if Client conflicts with anything.
-```
-
 Define a Scanpay client:
 ```csharp
 var apikey = "1089:bx2a4DATi8ad87Nm4uaxg5nggYA8J/Hv99CON977YiEdvYa6DmMwdoRPoYWyBJSi";
-var client = new Client(apikey);
+var client = new Scanpay.Client(apikey);
 ```
 
 
 ### New Payment Link
 Create a payment link to which you can redirect customers.
 ```csharp
-var data = new Client.NewURLReq
+var data = new Scanpay.NewURLReq
 {
     orderid = "999",
-    items = new Client.Item[]
+    items = new Scanpay.Item[]
     {
-        new Client.Item
+        new Scanpay.Item
         {
             name     = "Ultra Bike 7000",
             price    = "1337.01 DKK",
@@ -31,6 +26,7 @@ var data = new Client.NewURLReq
     }
 };
 var url = client.newURL(data);
+Console.WriteLine("Payment URL is " + url);
 ```
 
 

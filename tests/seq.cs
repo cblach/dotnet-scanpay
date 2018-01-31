@@ -1,5 +1,4 @@
 using System;
-using Scanpay;
 
 namespace NewURLTest
 {
@@ -7,8 +6,8 @@ namespace NewURLTest
     {
         static void Main(string[] args)
         {
-            var client = new Client("1089:bx2a4DATi8ad87Nm4uaxg5nggYA8J/Hv99CON977YiEdvYa6DmMwdoRPoYWyBJSi");
-            var opts = new Client.Options{ hostname = "api.test.scanpay.dk" };
+            var client = new Scanpay.Client("1089:bx2a4DATi8ad87Nm4uaxg5nggYA8J/Hv99CON977YiEdvYa6DmMwdoRPoYWyBJSi");
+            var opts = new Scanpay.Options{ hostname = "api.test.scanpay.dk" };
             var seqRes = client.seq(0, opts);
 
             Console.WriteLine("Printing seq res: (" + seqRes.seq + ")");
@@ -23,9 +22,13 @@ namespace NewURLTest
                     continue;
                 }
                 Console.WriteLine("  rev        = " + change.rev);
+                Console.WriteLine("  orderid    = " + change.orderid);
+                Console.WriteLine("  payid time = " + change.time.created);
+                Console.WriteLine("  auth time  = " + change.time.authorized);
                 Console.WriteLine("  authorized = " + change.totals.authorized);
                 Console.WriteLine("  captured   = " + change.totals.captured);
                 Console.WriteLine("  refunded   = " + change.totals.refunded);
+                Console.WriteLine("  left capt. = " + change.totals.left);
                 Console.WriteLine("  acts(" + change.acts.Length + ")");
                 var nact = 0;
                 foreach(var act in change.acts)
@@ -36,6 +39,7 @@ namespace NewURLTest
                     Console.WriteLine("    total= " + act.total);
                 }
             }
+            Console.WriteLine("New seq after applying all changes: seq = " + seqRes.seq);
         }
     }
 }
