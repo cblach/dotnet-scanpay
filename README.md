@@ -1,5 +1,10 @@
 # Scanpay .NET library
 
+## Documentation
+See the [docs](https://docs.scanpay.dk/)
+
+## Installation
+
 ## Usage
 
 Define a Scanpay client:
@@ -7,7 +12,6 @@ Define a Scanpay client:
 var apikey = "1089:bx2a4DATi8ad87Nm4uaxg5nggYA8J/Hv99CON977YiEdvYa6DmMwdoRPoYWyBJSi";
 var client = new Scanpay.Client(apikey);
 ```
-
 
 ### New Payment Link
 Create a payment link to which you can redirect customers.
@@ -28,7 +32,6 @@ var data = new Scanpay.NewURLReq
 var url = client.newURL(data);
 Console.WriteLine("Payment URL is " + url);
 ```
-
 
 ### Seq Request
 Get an array with a number of changes since the supplied sequence number:
